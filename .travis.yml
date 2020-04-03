@@ -1,0 +1,8 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t saikat180891/docker-angular -f Dockerfile.dev .
+# script:
+#     - docker run saikat180891/docker-angular npm run test -- --coverage
