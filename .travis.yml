@@ -9,4 +9,17 @@ before_install:
   - npm install -g node-gyp
   - docker build -t saikat180891/docker-angular .
 script:
-  - docker run saikat180891/docker-angular
+  - docker run saikat180891/docker-angular --
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-angular"
+  env: "DockerAngular-env"
+  bucket_name: "elasticbeanstalk-us-east-2-744637309231"
+  bucket_path: "docker-angular"
+  on:
+    branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key:
+      secure: "$AWS_SECRET_KEY"
