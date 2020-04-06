@@ -8,7 +8,7 @@ services:
 before_install:
   - docker build -t saikat180891/docker-angular .
 script:
-  - docker run saikat180891/docker-angular
+  - docker -d run saikat180891/docker-angular
 
 deploy:
   provider: elasticbeanstalk
